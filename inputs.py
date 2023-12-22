@@ -3412,6 +3412,10 @@ class DeviceManager(object):  # pylint: disable=useless-object-inheritance
             except KeyError:
                 pass
         try:
+            if evtype not in self.codes:
+                print(f"COULD NOT FIND {evtype} in self.codes")
+            elif code not in self.codes[evtype]:
+                print(f"COULD NOT FIND {code} in self.codes[evtype]")
             return self.codes[evtype][code]
         except KeyError:
             raise UnknownEventCode("We don't know this event.", evtype, code)
