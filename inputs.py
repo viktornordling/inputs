@@ -1285,10 +1285,7 @@ MAC_KEYS = (
 # We have yet to support force feedback but probably should
 # eventually:
 
-FORCE_FEEDBACK = (
-    (0x00, 'dummy0'),
-    (0x01, 'dummy1'),
-)
+FORCE_FEEDBACK = ()
 FORCE_FEEDBACK_STATUS = ()  # Status of motor
 
 POWER = ()  # Power switch
@@ -3415,10 +3412,8 @@ class DeviceManager(object):  # pylint: disable=useless-object-inheritance
             except KeyError:
                 pass
         try:
-            if evtype not in self.codes:
-                print(f"COULD NOT FIND {evtype} in self.codes")
-            elif code not in self.codes[evtype]:
-                print(f"COULD NOT FIND {code} in self.codes[evtype]")
+            if evtype == 'ForceFeedback':
+                return "dummy"
             return self.codes[evtype][code]
         except KeyError:
             raise UnknownEventCode("We don't know this event.", evtype, code)
