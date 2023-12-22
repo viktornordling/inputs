@@ -1286,7 +1286,8 @@ MAC_KEYS = (
 # eventually:
 
 FORCE_FEEDBACK = (
-    (0x00, 'dummy'),
+    (0x00, 'dummy0'),
+    (0x01, 'dummy1'),
 )
 FORCE_FEEDBACK_STATUS = ()  # Status of motor
 
